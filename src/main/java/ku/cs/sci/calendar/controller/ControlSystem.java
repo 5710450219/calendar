@@ -11,6 +11,7 @@ public class ControlSystem {
 	public void startApplication() {
 		arr = new ArrayList<Appointment>();
 		GuiCalendar view = new GuiCalendar(this);
+		
 	}
 
 	public ArrayList<Appointment> getArray() {
