@@ -15,6 +15,7 @@ import ku.cs.sci.calendar.model.People;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class GuiCalendar2 {
@@ -107,6 +108,13 @@ public class GuiCalendar2 {
 					Appointment ap = new Appointment(p1, p2, day.getText(), time.getText());
 					control.getArray().add(ap);
 					JOptionPane.showMessageDialog(null, "Add Complete");
+					try {
+						control.getDatabase().addCalendar(control.getDatabase().getMaxId(), name1.getText(),
+								name2.getText(), day.getText(), time.getText(), place.getText());
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					GuiCalendar g = new GuiCalendar(control);
 					frame.setVisible(false);
 				}
